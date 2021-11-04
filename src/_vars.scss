@@ -1,0 +1,17 @@
+// font-size
+$baseFontSize: 16px;
+
+// font-weight
+$weight-regular-400: 400;
+$weight-semibold-600: 600;
+$weight-bold-700: 700;
+
+// breakpoints
+$breakpoint-lg: 1200px;
+$breakpoint-md-max: $breakpoint-lg - 1;
+$breakpoint-md: 800px;
+$breakpoint-s-max: $breakpoint-md - 1;
+$breakpoint-s: 600px;
+$breakpoint-xs-max: $breakpoint-s - 1;
+$breakpoint-xs: 400px;
+$breakpoint-xxs-max: $breakpoint-xs - 1;

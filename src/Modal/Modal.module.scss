@@ -1,0 +1,127 @@
+@import "../colors";
+@import "../vars.scss";
+
+.modalBackground {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($mediumGrey, 0.5);
+  position: fixed;
+  color: $secondaryDark;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer {
+  width: 450px;
+  height: 580px;
+  background-color: $primaryLight;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-radius: 3px;
+  box-shadow: 0px 8px 18px rgba($primaryDark, 0.25);
+  @media screen and (max-width: $breakpoint-xs-max) {
+    width: 95vw;
+    height: 75vh;
+  }
+}
+
+.modalButton {
+  border: none;
+  transition: all ease-in-out 0.2s;
+  &:hover,
+  &:focus {
+    color: $primaryLight;
+    outline: none;
+    cursor: pointer;
+  }
+}
+
+.modalButtonPrimary {
+  background: $primaryLight;
+  border: none;
+  transition: all ease-in-out 0.2s;
+  color: $primaryDark;
+  &:hover,
+  &:focus {
+    background-color: $lightGreen;
+  }
+}
+
+.modalButtonSecondary {
+  background-color: $lightGreen;
+  color: $primaryLight;
+  &:hover,
+  &:focus {
+    background-color: $darkGreen;
+    box-shadow: 1px 1px 1px 2px $darkGreen;
+  }
+}
+
+.titleCloseButtonContainer {
+  align-self: flex-end;
+}
+
+.titleCloseButton {
+  color: $lightGreen;
+  font-weight: 700;
+  font-size: $baseFontSize;
+}
+
+.textContainer {
+  flex: 1;
+  width: 100%;
+  padding: 0 1em;
+}
+
+.modalTitle {
+  text-align: center;
+  box-shadow: 0px 3px 0px 0px $lightGreen;
+  line-height: 2;
+}
+
+.footerButtonsContainer {
+  padding-bottom: 2rem;
+}
+
+.footerButton {
+  box-shadow: 1px 1px 1px 2px $lightGreen;
+  margin: 0 auto;
+  padding: 0.5em 1em;
+  font-size: $baseFontSize;
+}
+
+.footerButton + .footerButton {
+  margin-left: 1em;
+}
+
+ul::-webkit-scrollbar {
+  width: 5px;
+}
+
+ul::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: rgba($mediumGrey, 0.5);
+  -webkit-box-shadow: 0 0 1px rgba($primaryLight, 0.5);
+}
+
+.goalsList {
+  list-style: none;
+  list-style-image: url("../assets/quill-green.svg");
+  overflow-x: hidden;
+  overflow-y: visible;
+  overflow-wrap: anywhere;
+  max-height: 37.7vh;
+  @media screen and (max-width: $breakpoint-xs-max) {
+    max-height: 45.2vh;
+  }
+}
+
+.goalItem {
+  margin-bottom: 0.5em;
+  padding-right: 1em;
+}

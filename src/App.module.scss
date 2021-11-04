@@ -1,0 +1,202 @@
+@import "./colors";
+@import "./vars";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: $primaryLight;
+}
+
+h1 {
+  font-size: $baseFontSize * 2;
+  font-weight: $weight-bold-700;
+  @media screen and (max-width: $breakpoint-xxs-max) {
+    font-size: $baseFontSize * 1.5;
+  }
+}
+
+h2 {
+  font-size: $baseFontSize * 1.5;
+  font-weight: $weight-semibold-600;
+  @media screen and (max-width: $breakpoint-xxs-max) {
+    font-size: $baseFontSize * 1.3;
+  }
+}
+
+p {
+  margin: 0;
+  font-weight: $weight-regular-400;
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+  background: rgba($secondaryDark, 1);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: inset 0 0 0 1000px rgba($primaryDark, 0.35);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.top {
+  align-self: flex-end;
+  min-width: 125px;
+  padding: 1rem;
+}
+
+.cityName {
+  text-align: center;
+}
+
+.weatherContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.iconContainer {
+  max-width: 76px;
+}
+
+.icon {
+  max-width: 100%;
+  aspect-ratio: 76 / 76;
+}
+
+.centerText {
+  align-self: center;
+  padding: 1rem;
+}
+
+.greeting,
+.time {
+  text-align: center;
+}
+
+.goal {
+  margin-top: 5rem;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+}
+
+.input {
+  min-width: 55%;
+  margin: 0 auto;
+  line-height: 2;
+  background: transparent;
+  color: $primaryLight;
+  font-size: $baseFontSize * 1.3;
+  padding: 0 0.5em;
+  border: none;
+  box-shadow: 0 -5px 3px -4px $secondaryLight, 0 5px 3px -4px $secondaryLight;
+  text-align: center;
+  @media screen and (max-width: $breakpoint-xxs-max) {
+    font-size: $baseFontSize * 1.2;
+    padding: 0;
+  }
+  @media screen and (max-width: $breakpoint-s-max) {
+    min-width: 100%;
+  }
+  @media screen and (min-width: $breakpoint-md) and (max-width: $breakpoint-md-max) {
+    min-width: 80%;
+  }
+  &::placeholder {
+    color: rgba($primaryLight, 0.7);
+    text-align: center;
+  }
+  &:focus {
+    outline-style: none;
+    box-shadow: none;
+    border-color: transparent;
+    box-shadow: 0 -5px 3px -4px $secondaryLight, 0 5px 3px -4px $secondaryLight;
+    color: $primaryLight;
+    border-top: 1px solid $primaryLight;
+    border-bottom: 1px solid $primaryLight;
+  }
+}
+
+.interactiveElementsContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 8rem;
+  justify-content: space-between;
+}
+
+.buttonsContainer {
+  display: flex;
+  margin: 0 auto;
+  @media screen and (max-width: $breakpoint-xxs-max) {
+    margin: unset;
+  }
+}
+
+.btn {
+  text-transform: uppercase;
+  width: max-content;
+  padding: 0.5em 2em;
+  font-size: $baseFontSize;
+  margin: 0 auto;
+  transition: all ease-in-out 0.2s;
+  @media screen and (max-width: 399px) {
+    padding: 0.5em;
+    font-size: $baseFontSize * 0.9;
+  }
+  @media screen and (min-width: $breakpoint-xs) and (max-width: $breakpoint-xs-max) {
+    padding: 0.5em 1em;
+    font-size: $baseFontSize * 0.95;
+  }
+}
+
+.btn + .btn {
+  margin-left: 1.5em;
+  @media screen and (max-width: $breakpoint-xxs-max) {
+    margin-left: 0;
+  }
+}
+
+.saveButton {
+  background-color: transparent;
+}
+
+.getArchiveButton {
+  border: 2px solid $primaryLight;
+  background: $primaryLight;
+  color: $darkGrey;
+}
+
+.saveButton:hover,
+.getArchiveButton:hover {
+  background: $primaryLight;
+  color: $darkGrey;
+  cursor: pointer;
+}
+
+.saveButton:focus,
+.getArchiveButton:focus {
+  outline: 2px solid $lightGrey;
+  outline-offset: 1px;
+}
+
+.buttonActive {
+  color: $primaryLight;
+  border: 2px solid $primaryLight;
+}
+
+.buttonInactive {
+  color: rgba($primaryLight, 0.7);
+  border: 2px solid rgba($primaryLight, 0.7);
+  &:hover {
+    background-color: transparent;
+    color: rgba($primaryLight, 0.7);
+  }
+}
+
+.bottom {
+  align-self: flex-start;
+  padding: 1rem;
+}
