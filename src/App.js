@@ -10,12 +10,12 @@ function App() {
   const [backgroundImage, setBackgroundImage] = useState('')
   const [authorName, setAuthorName] = useState('')
   const [date, setDate] = useState(new Date())
-  const [greetingStatus, setGreetingStatus] = useState('')
   const [iconUrl, setIconUrl] = useState('http://openweathermap.org/img/wn/02d@2x.png')
   const [cityName, setCityName] = useState('Auckland')
   const [temp, setTemp] = useState('>5 ℃')
   const [openModal, setOpenModal] = useState(false)
   const [goalItem, setGoalItem] = useState('')
+  const hours = date.getHours();
   let defaultGoals = JSON.parse(localStorage.getItem("myGoals"))
 
   if (defaultGoals === null) {
@@ -37,7 +37,6 @@ function App() {
         throw Error(`Image not found`)
       }
         const imageUrl = data.urls.regular
-        console.log(data)
         setBackgroundImage(`${imageUrl}`)
         setAuthorName(data.user.name)
     } catch (error) {
@@ -60,7 +59,6 @@ function App() {
         if(data.cod !== '200' || data.count < 1) {
           throw Error("Data is incorrect")
       }
-        console.log(data)
         setCityName(`${data.list[0].name}`)
         setIconUrl(`http://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`)
         setTemp(`${Math.round(data.list[0].main.temp)} ℃`)
@@ -74,27 +72,18 @@ function App() {
      })
  }, [])
 
-
   useEffect(() => {
     chooseBackgroundImage()
-  }, [])
-
-  useEffect(() => {
-    let timerID = setInterval(tick, 10000 )
+    let timerID = setInterval(tick, 1000 )
   
     return function cleanup() {
         clearInterval(timerID)
       };
-   }, []);
+  }, [])
   
    function tick() {
       setDate(new Date());
    }
-
-  useEffect(() => {
-    let hours = date.getHours();
-    setGreetingStatus((hours < 12) ? "Morning" : ((hours >= 12 && hours <= 18) ? "Afternoon" : "Night"))
-  }, [])
 
   function setGoal(e) {
     const goalValue = e.target.value
@@ -134,7 +123,7 @@ function App() {
               </div>
             </div>
             <div className={styles.centerText}>
-              <h1 className={styles.greeting}>{`Good ${greetingStatus}`}</h1>
+              <h1 className={styles.greeting}>{`Good ${(hours < 12) ? "Morning" : ((hours >= 12 && hours <= 18) ? "Afternoon" : "Night")}`}</h1>
               <h2 className={styles.time}>{date.toLocaleTimeString("en-us", {hour: '2-digit', minute:'2-digit'})}</h2>
               <h2 className={styles.goal}>Today: {currentGoal()}</h2>
             </div>
