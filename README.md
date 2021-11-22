@@ -1,6 +1,30 @@
-# Getting Started with Create React App
+# About this project
+
+This is my study project for demonstration interaction with API, using `localStorage` and `React.useEffect()` Hook.The Sass/Scss preprocessor was used in this application to have an option using styles variables and nested rules.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Setting up the React dashboard app
+
+1. Create The Movie Database API Key use a link [https://openweathermap.org/appid](https://openweathermap.org/appid)
+
+1. Make your own `.env` file
+
+   ```bash
+   cp .env.example .env.local
+   ```
+
+1. Open `.env.local` in your favourite text editor/IDE. Set your API Key as a value of `REACT_APP_OPEN_WEATHER_MAP_API_KEY` variable.
+
+1. Install and start
+   ```bash
+   npm install
+   npm start
+   ```
+
+## Please note:
+
+Because of using Geolocation API the feature of getting weather by location will work only in Mozilla Firefox, and in Chrome this feature is available only in secure contexts (HTTPS).
 
 ## Available Scripts
 
@@ -68,4 +92,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
 # dashboard-chrome-extension
